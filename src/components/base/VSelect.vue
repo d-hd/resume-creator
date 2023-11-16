@@ -1,7 +1,11 @@
 <template>
   <div class="form-control">
-    <label for="type">Тип блока</label>
-    <select id="type">
+    <label :for="id">Тип блока</label>
+    <select 
+      :id="id"
+      :value="modelValue"
+      @change="change"
+    >
       <option
         v-for="({text, value}) in options"
         :key="value"
@@ -15,6 +19,18 @@
 
 <script>
 export default {
-  inject: ['options']
+  emits: ['update:modelValue'],
+  props: ['modelValue'],
+  inject: ['options'],
+  data() {
+    return {
+      id: 'option' + Math.random(),
+    }
+  },
+  methods: {
+    change(event) {
+      this.$emit('update:modelValue', event.target.value)
+    }
+  },
 }
 </script>
