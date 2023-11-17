@@ -2,6 +2,8 @@
   <button 
     class="btn"
     :class="color"
+    :disabled="disabled"
+    @click.prevent="$emit('action')"
   >
     <slot />
   </button>
@@ -9,6 +11,7 @@
 
 <script>
 export default {
+  emits: ['action'],
   props: {
     color: {
       type: String,
@@ -16,6 +19,10 @@ export default {
       validator(value) {
         return ['primary', 'danger'].includes(value)
       }
+    },
+    disabled: {
+      type: Boolean,
+      desc: 'Заблокировать кнопку'
     }
   }
 }

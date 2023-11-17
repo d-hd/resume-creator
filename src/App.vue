@@ -1,7 +1,7 @@
 <template>
   <div class="container column">
-    <FieldSelectionForm/>
-    <ResumeArea />
+    <FieldSelectionForm @addBlock="setBlocksData"/>
+    <ResumeArea :blockData="blockData"/>
   </div>
   <div class="container">
     <p>
@@ -36,7 +36,13 @@ export default {
           text: 'Текст',
           value: 'text',
         },
-      ]
+      ],
+      blockData: []
+    }
+  },
+  provide() {
+    return {
+      options: this.blockTypes
     }
   },
   components: {
@@ -44,9 +50,9 @@ export default {
     FieldSelectionForm,
     Comments,
   },
-  provide() {
-    return {
-      options: this.blockTypes
+  methods: {
+    setBlocksData(data) {
+      this.blockData.push(data)
     }
   },
 }
