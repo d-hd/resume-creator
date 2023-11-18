@@ -1,14 +1,3 @@
 <template>
-  <h1>{{ title }}</h1>
+  <h1>{{ $attrs.value }}</h1>
 </template>
-
-<script>
-export default {
-  props: {
-    title: {
-      type: String,
-      desc: 'Текст заголовока'
-    }
-  }
-}
-</script>

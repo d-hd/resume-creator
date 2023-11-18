@@ -1,7 +1,7 @@
 <template>
   <div class="container column">
     <FieldSelectionForm @addBlock="setBlocksData"/>
-    <ResumeArea :blockData="blockData"/>
+    <ResumeArea :blocksData="blocksData"/>
   </div>
   <div class="container">
     <p>
@@ -37,7 +37,7 @@ export default {
           value: 'text',
         },
       ],
-      blockData: []
+      blocksData: []
     }
   },
   provide() {
@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     setBlocksData(data) {
-      this.blockData.push(data)
+      this.blocksData.push(data)
     }
   },
 }

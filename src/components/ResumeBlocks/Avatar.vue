@@ -1,26 +1,11 @@
 <template>
   <div class="avatar">
     <img 
-      :src="src" 
-      :alt="alt"
+      :src="$attrs.value" 
+      alt="Аватар"
     >
   </div>
 </template>
-
-<script>
-export default {
-  props: {
-    scr: {
-      type: String,
-      desc: 'Ссылка на картинку'
-    }
-  },
-  alt: {
-    type: String,
-    desc: 'Альт картинки'
-  }
-}
-</script>
 
 <style scoped>
 .avatar {

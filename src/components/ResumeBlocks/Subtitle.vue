@@ -1,14 +1,3 @@
 <template>
-  <h2>{{ subtitle }}</h2>
+  <h2>{{ $attrs.value }}</h2>
 </template>
-
-<script>
-export default {
-  props: {
-    subtitle: {
-      type: String,
-      desc: 'Текст подзаголовока'
-    }
-  }
-}
-</script>

@@ -5,7 +5,7 @@
     <VButton
       color="primary"
       :disabled="isDisabledBtn"
-      @action="$emit('addBlock', block)"
+      @action="$emit('addBlock', block), resetForm()"
     >
       Добавить
     </VButton>
@@ -59,6 +59,12 @@ export default {
         type: this.typeBlock,
         value: this.blockValue
       }
+    }
+  },
+  methods: {
+    resetForm() {
+      this.typeBlock = 'title'
+      this.blockValue = ''
     }
   }
 }

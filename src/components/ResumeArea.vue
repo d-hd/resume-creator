@@ -1,13 +1,13 @@
 <template>
   <div class="card card-w70">
-    {{ blockData }}
-    <h3 v-if="!blockData.length">Добавьте первый блок, чтобы увидеть результат</h3>
-    <component
-      v-else
-      v-for="({type, value}, index) in blockData" 
-      :key="index"
-      :is="getCurrentComponent(type)"
-      v-bind="value"></component>
+    <template v-if="blocksData.length">
+      <component
+      v-for="({type, value}, index) in blocksData" 
+      :key="`${type}_${index}`"
+      :is="type"
+      v-bind="{value: value}"></component>
+    </template>
+    <h3 v-else>Добавьте первый блок, чтобы увидеть результат</h3>
   </div>
 </template>
 
@@ -19,32 +19,9 @@ import Title from './ResumeBlocks/Title.vue'
 
 export default {
   props: {
-    blockData: {
+    blocksData: {
       type: Array,
       desc: 'Массив с элементами-данными о блоке, где type - тип блока, value - значение',
-      // validator(arr) {
-      //   if (arr.length) return true
-        
-      //   return false
-      // }
-    }
-  },
-  methods: {
-    getCurrentComponent(type) {
-      switch (type) {
-        case 'title':
-          return 'Title'
-          break
-        case 'subtitle':
-          return 'Subtitle'
-          break
-        case 'avatar':
-          return 'Avatar'
-          break
-        case 'text':
-          return 'Text'
-          break
-      }
     }
   },
   components: {

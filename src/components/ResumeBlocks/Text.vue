@@ -1,14 +1,3 @@
 <template>
-  <p>{{ text }}</p>
+  <p>{{ $attrs.value }}</p>
 </template>
-
-<script>
-export default {
-  props: {
-    text: {
-      type: String,
-      desc: 'Текст'
-    }
-  }
-}
-</script>
