@@ -17,7 +17,7 @@ export default {
       type: String,
       desc: 'Цвет кнопки',
       validator(value) {
-        return ['primary', 'danger'].includes(value)
+        return ['primary', 'danger', 'warning'].includes(value)
       }
     },
     disabled: {

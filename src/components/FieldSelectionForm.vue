@@ -3,11 +3,19 @@
     <VSelect v-model="typeBlock" />
     <VTextarea v-model="blockValue" />
     <VButton
+      class="addBtn"
       color="primary"
       :disabled="isDisabledBtn"
       @action="$emit('addBlock', block), resetForm()"
     >
       Добавить
+    </VButton>
+    <VButton
+      class="clearBtn"
+      color="danger"
+      @action="$emit('clear')"
+    >
+      Очистить резюме
     </VButton>
   </form>
 </template>
@@ -36,6 +44,7 @@ export default {
 
       return true
     },
+    clear: null
   },
   components: { VSelect, VTextarea },
   data() {
@@ -69,3 +78,15 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.clearBtn {
+  width: 100%;
+  margin: 20px 0 0 0;
+}
+
+.addBtn {
+  width: 100%;
+  margin: 0;
+}
+</style>
