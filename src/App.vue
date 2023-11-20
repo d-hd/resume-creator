@@ -67,14 +67,14 @@ export default {
         let respons
 
         if (this.resumeIdOnFirebase) {
-          const responsDelete = await fetch(`https://resume-creator-d30db-default-rtdb.firebaseio.com/resume/${this.resumeIdOnFirebase}.json`, {
+          const responsDelete = await fetch(`https://resume-creator-7aa3e-default-rtdb.firebaseio.com/resume/${this.resumeIdOnFirebase}.json`, {
             method: 'DELETE',
             headers: {
               'Content-Type': 'application/json',
             },
           })
 
-          respons = await fetch(`https://resume-creator-d30db-default-rtdb.firebaseio.com/resume/${this.resumeIdOnFirebase}.json`, {
+          respons = await fetch(`https://resume-creator-7aa3e-default-rtdb.firebaseio.com/resume/${this.resumeIdOnFirebase}.json`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ export default {
             body: JSON.stringify(this.blocksData)
           })
         } else {
-          respons = await fetch('https://resume-creator-d30db-default-rtdb.firebaseio.com/resume.json', {
+          respons = await fetch('https://resume-creator-7aa3e-default-rtdb.firebaseio.com/resume.json', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ export default {
     },
     async loadResume() {
       try {
-        const respons = await fetch('https://resume-creator-d30db-default-rtdb.firebaseio.com/resume.json', {
+        const respons = await fetch('https://resume-creator-7aa3e-default-rtdb.firebaseio.com/resume.json', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -133,9 +133,9 @@ export default {
         let url
 
         if (this.resumeIdOnFirebase) {
-          url = `https://resume-creator-d30db-default-rtdb.firebaseio.com/resume/${this.resumeIdOnFirebase}.json`
+          url = `https://resume-creator-7aa3e-default-rtdb.firebaseio.com/resume/${this.resumeIdOnFirebase}.json`
         } else {
-          url = 'https://resume-creator-d30db-default-rtdb.firebaseio.com/resume.json'
+          url = 'https://resume-creator-7aa3e-default-rtdb.firebaseio.com/resume.json'
         }
 
         const responsDelete = await fetch(url, {
